@@ -97,9 +97,6 @@ input[type='checkbox'] {
   bottom: 5px;
   height: 18px;
   width: 18px;
-}
-
-.count {
   color: white;
   display: flex;
   justify-content: center;
