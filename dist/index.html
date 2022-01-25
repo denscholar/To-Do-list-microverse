@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/a70cf7601d.js"
+      crossorigin="anonymous"
+    ></script>
     <title>To Do List</title>
-<script defer src="index.bundle.js"></script></head>
-<body>
-    <h1>To Do list</h1>
-    
-</body>
+  <script defer src="index.bundle.js"></script></head>
+
+  <div class="container">
+    <h1>My Todo List </h1>
+    <div class="refresh">
+        <p>Demo</p>
+        <i class="fas fa-sync-alt"></i>
+        <span class="count">4</span>
+    </div>
+    <form>
+        <input type="text" name="todo-input" id="todo-input" placeholder="Type in your task here">
+        <button type="submit" id="task-submit"><i class="fas fa-level-down-alt rotate"></i></button>
+    </form>
+    <ul class="task-list">
+      <!-- <li class="task">
+        <input class="check" type="checkbox" value="">
+        <input type="text" class="task-text" type="checkbox" value="This is the first task" readonly>
+        <button><i id="" class="fas fa-ellipsis-v"></i></button>
+        <button class="btn"><i id="taskdelete" class="fas fa-trash"></i></button>
+      </li> -->
+    </ul>
+    <button class="clear-button">Clear all task</button>
+</div>
 </html>

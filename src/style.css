@@ -1,100 +1,102 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   list-style: none;
-  background: rgb(168, 161, 161);
-  background: white;
+  box-sizing: border-box;
 }
 
 body {
+  display: grid;
+  place-items: center;
+  background-color: lightgrey;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.container {
   background: white;
-  min-height: 70vh;
-  width: 28em;
-  margin: 50px auto;
-  margin-top: 7em;
+  max-width: 2000px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.664);
 }
 
-header {
-  margin: 1em auto 0;
-  padding: 1em;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  width: 26em;
-}
-
-p {
-  font-size: 20px;
-}
-
-header,
-.form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+h1 {
+  color: #2555ed;
+  text-align: center;
+  margin: 1rem 5rem;
 }
 
 button {
   border: none;
+  background: white;
 }
 
-.form input,
-.form button {
+form input,
+form button {
   padding: 1rem;
-  font-size: 22px;
+  font-size: 20px;
   border: none;
   border-top: 1px solid rgb(197, 196, 196);
   border-bottom: 1px solid rgb(187, 187, 187);
   background: rgb(247, 245, 245);
   outline: none;
-
-  /* width: 100%; */
 }
 
-.form input {
-  width: 20em;
+form input {
+  width: 85%;
 }
 
-.form-container {
+.clear-button {
+  font-size: 20px;
+  width: 100%;
+  padding: 20px;
+  text-decoration: underline;
+  background: #f6f6f6;
+  border: 1px solid #ebebeb;
+  cursor: pointer;
+}
+
+li {
   display: flex;
-  justify-content: space-between;
-  margin: 15px;
   align-items: center;
   align-content: center;
-}
-
-.fa-trash-alt,
-.fa-ellipsis-v {
-  font-size: 20px;
-}
-
-.fa-trash-alt {
-  display: none;
-}
-
-label {
-  font-size: 20px;
   padding: 10px;
+  border-bottom: 1px solid lightgrey;
 }
 
-input[type='checkbox'] {
+.task-text {
+  font-size: 20px;
+  flex-grow: 1;
+  padding: 7px;
+  outline: none;
+  margin: 5px;
+  border: none;
+}
+
+.fa-ellipsis-v,
+.fa-trash,
+.fa-sync-alt {
+  font-size: 20px;
+  margin: 10px;
+}
+
+.check {
   width: 20px;
-  height: 18px;
+  height: 20px;
 }
 
 .refresh {
   position: relative;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
 }
 
 .count {
   position: absolute;
-  right: 0;
-  left: 16px;
-  bottom: 5px;
+  bottom: 22px;
+  right: 5px;
   height: 18px;
   width: 18px;
   color: white;
@@ -106,13 +108,15 @@ input[type='checkbox'] {
   padding: 2px;
 }
 
-.clear-button {
+.refresh p {
   font-size: 20px;
-  width: 100%;
-  padding: 20px;
-  margin-top: 30px;
-  text-decoration: underline;
-  background: #f6f6f6;
-  border: 1px solid #ebebeb;
-  cursor: pointer;
+}
+
+.rotate {
+  transform: rotate(90deg);
+  font-size: 14px;
+}
+
+.btn {
+  display: none;
 }
