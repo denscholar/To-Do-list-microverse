@@ -11,21 +11,20 @@
     <title>To Do List</title>
   </head>
 
-  <body>
-    <header class="header">
-      <div class="title"><p>Demo</p></div>
-      <div class="refresh">
+  <div class="container">
+    <h1>My Todo List </h1>
+    <div class="refresh">
+        <p>Demo</p>
         <i class="fas fa-sync-alt"></i>
         <span class="count">4</span>
-      </div>
-    </header>
-    <form class="form">
-      <input class="todo-input" type="text" placeholder="Add to your list here" />
-      <button class="todo-btn"><i class="fas fa-level-down-alt"></i></button>
-    </form>
-    <div class="todo-container">
-      <ul class="todo-list">
-      </ul>
     </div>
-  </body>
+    <form>
+        <input type="text" name="todo-input" id="todo-input" placeholder="Type in your task here">
+        <button type="submit" id="task-submit"><i class="fas fa-level-down-alt rotate"></i></button>
+    </form>
+    <ul class="task-list">
+     
+    </ul>
+    <button class="clear-button">Clear all task</button>
+</div>
 </html>
