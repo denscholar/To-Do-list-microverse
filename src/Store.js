@@ -30,6 +30,13 @@ class Store {
     });
     localStorage.setItem('tasks', JSON.stringify(filteredTask));
   }
+
+  // Edit task from storage
+  static editTask = (id) => {
+    const tasks = Store.getTask();
+  
+  };
+
 }
 
 export default Store;

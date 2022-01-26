@@ -25,7 +25,6 @@ export class DummytoDos {
         <button class="btn"><i id="taskdelete" class="fas fa-trash"></i></button>
         `;
     editTask(index, li);
-
     taskList.appendChild(li);
   }
 
@@ -36,19 +35,5 @@ export class DummytoDos {
     }
   }
 }
-// const editTask = (index, li) => {
-//   console.log(li.childNodes[3]);
-//   li.childNodes[3].addEventListener('onkeypress', (e) => {
-//     console.log('hello world');
-//   });
-
-//   document.querySelector('.task-list').addEventListener('click', (e) => {
-//     const storage = Store.getTask();
-//     const item = e.target;
-//     if (item.parentElement.childNodes[3].className === 'task-text') {
-//       item.parentElement.childNodes[3].removeAttribute('readOnly');
-//     }
-//   });
-// };
 
 export default DummytoDos;

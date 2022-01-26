@@ -70,6 +70,7 @@ li {
   outline: none;
   margin: 5px;
   border: none;
+  text-decoration: none;
 }
 
 .fa-ellipsis-v,
@@ -115,6 +116,8 @@ li {
 .rotate {
   transform: rotate(90deg);
   font-size: 14px;
+  
+
 }
 
 .btn {

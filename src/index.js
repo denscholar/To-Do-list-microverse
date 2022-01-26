@@ -32,7 +32,17 @@ document.querySelector('.task-list').addEventListener('click', (e) => {
   // remove from UI
   DummytoDos.deleteTaskFromUI(e.target);
   //   remove from Storage
-  Store.deleteTask(
-    e.target.parentElement.parentElement.childNodes[3].id,
-  );
+  Store.deleteTask(e.target.parentElement.parentElement.childNodes[3].id);
+});
+
+// event for checked and strike and edit
+document.querySelector('.task-list').addEventListener('click', (e) => {
+  const item = e.target;
+  const check = item.parentElement.firstElementChild.checked;
+  const description = item.parentElement.childNodes[3];
+  if (check) {
+    description.style.textDecoration = 'line-through';
+  } else {
+    description.style.textDecoration = 'none';
+  }
 });
