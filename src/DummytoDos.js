@@ -1,7 +1,6 @@
 /* eslint-disable import/no-cycle */
 import Store from './Store.js';
 import { taskList } from './selectors.js';
-import editTask from './newFile.js';
 
 // The handles all UI features
 export class DummytoDos {
@@ -24,7 +23,7 @@ export class DummytoDos {
         <button><i id="" class="fas fa-ellipsis-v"></i></button>
         <button class="btn"><i id="taskdelete" class="fas fa-trash"></i></button>
         `;
-    editTask(index, li);
+
     taskList.appendChild(li);
   }
 

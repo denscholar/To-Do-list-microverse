@@ -23,20 +23,16 @@ class Store {
 
   // Delete task from storage
   static deleteTask(id) {
-    const tasks = Store.getTask();
+    let tasks = Store.getTask();
+    if (tasks.length === 1) {
+      tasks = [];
+    }
     const filteredTask = tasks.filter((task) => task.index != id);
     filteredTask.forEach((task, index) => {
       task.index = index + 1;
     });
     localStorage.setItem('tasks', JSON.stringify(filteredTask));
   }
-
-  // Edit task from storage
-  static editTask = (id) => {
-    const tasks = Store.getTask();
-  
-  };
-
 }
 
 export default Store;

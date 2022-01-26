@@ -116,10 +116,4 @@ li {
 .rotate {
   transform: rotate(90deg);
   font-size: 14px;
-  
-
-}
-
-.btn {
-  /* display: none; */
 }
