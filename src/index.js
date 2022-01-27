@@ -8,11 +8,12 @@ import { form, input } from './selectors.js';
 import Store from './Store.js';
 import './style.css';
 import Todo from './Todo.js';
+import strikeTthrough from './strikethrough.js';
 
-// Events: display Books
-document.addEventListener('DOMContentLoaded', DummytoDos.displayTask);
+// Events: display Task
+document.addEventListener('DOMContentLoaded', Store.displayTask);
 
-// Events: add a book
+// Events: add a Task
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const index = Store.getTask().length + 1;
@@ -25,28 +26,14 @@ form.addEventListener('submit', (e) => {
   const todo = new Todo(inputText, completed, index);
 
   // add Task to UI
-  DummytoDos.addTaskToList(todo);
   Store.addTask(todo);
   input.value = '';
-});
-
-// Events to remove a task from UI
-document.querySelector('.task-list').addEventListener('click', (e) => {
-  // remove from UI
-  DummytoDos.deleteTaskFromUI(e.target);
-  //   remove from Storage
-  Store.deleteTask(e.target.parentElement.parentElement.childNodes[3].id);
 });
 
 // event for checked and strike and edit
 document.querySelector('.task-list').addEventListener('click', (e) => {
   checkStrikeAndEdit(e);
+  strikeTthrough(e);
 });
 
-// Event that shows the trashcan
-// document.querySelector('.task-list').addEventListener('click', (e) => {
-//   const item = e.target;
-//   const inputElement = item.parentElement.childNodes;
-//   const trashcan = item.parentElement.childNodes[5];
-  
-// });
+Store.displayTasks();

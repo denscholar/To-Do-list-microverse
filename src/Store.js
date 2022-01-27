@@ -1,5 +1,8 @@
 /* eslint-disable eqeqeq */
-// store class: handles storage: local storage
+import createTask from './displayTask.js';
+import { check } from './checkStrikeAndEdit.js';
+
+const todoList = document.querySelector('.task-list');
 
 class Store {
   // get the task
@@ -18,22 +21,62 @@ class Store {
   static addTask(task) {
     const tasks = Store.getTask();
     tasks.push(task);
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-    // display task
+    Store.save(tasks);
+    Store.displayTasks();
   }
 
   // Delete task from storage
-  static deleteTask(id) {
-    let tasks = Store.getTask();
-    if (tasks.length === 1) {
-      tasks = [];
+  static deleteTask = () => {
+    const tasks = Store.getTask();
+    const deleteBtn = document.getElementsByClassName('fa-trash');
+    for (let i = 0; i < deleteBtn.length; i += 1) {
+      deleteBtn[i].addEventListener('click', () => {
+        const filteredTask = tasks.filter((task) => task.index - 1 !== i);
+        filteredTask.forEach((task, index) => {
+          task.index = index + 1;
+        });
+        Store.save(filteredTask);
+        Store.displayTasks();
+      });
     }
-    const filteredTask = tasks.filter((task) => task.index != id);
-    filteredTask.forEach((task, index) => {
-      task.index = index + 1;
-    });
-    localStorage.setItem('tasks', JSON.stringify(filteredTask));
+  };
+
+  // static clearTask = () => {
+  //   const tasks = Store.getTask();
+  //   const clearBtn = document.getElementsByClassName('clear-button');
+  //   clearBtn.addEventListener('click', () => {
+  //     const filteredTask = tasks.filter((task) => task.completed !== true);
+  //     filteredTask.forEach((task, index) => {
+  //       task.index = index + 1;
+  //     });
+  //     Store.save(filteredTask);
+  //     Store.displayTasks();
+  //   });
+  // };
+
+  static save(tasks) {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
   }
+
+  static displayTasks = () => {
+    const tasks = Store.getTask();
+    todoList.innerHTML = '';
+    const sortedList = tasks.sort((a, b) => {
+      if (a.index > b.index) {
+        return 1;
+      }
+      if (a.index < b.index) {
+        return -1;
+      }
+      return 0;
+    });
+    sortedList.forEach((task) => {
+      createTask(task);
+    });
+    Store.save(sortedList);
+    check();
+    Store.deleteTask();
+  };
 }
 
 export default Store;

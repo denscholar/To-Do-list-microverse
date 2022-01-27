@@ -127,3 +127,7 @@ li {
 .fa-ellipsis-v{
   /* display: none; */
 }
+
+.completed{
+  /* text-decoration: line-through; */
+}
