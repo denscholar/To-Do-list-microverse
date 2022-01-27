@@ -29,7 +29,7 @@ export class DummytoDos {
 
   // Delete a task from the UI
   static deleteTaskFromUI(e) {
-    if (e.classList.contains('fa-trash')) {
+    if (e.classList.contains('btn')) {
       e.parentElement.parentElement.remove();
     }
   }

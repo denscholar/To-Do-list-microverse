@@ -19,6 +19,7 @@ class Store {
     const tasks = Store.getTask();
     tasks.push(task);
     localStorage.setItem('tasks', JSON.stringify(tasks));
+    // display task
   }
 
   // Delete task from storage

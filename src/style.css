@@ -117,3 +117,13 @@ li {
   transform: rotate(90deg);
   font-size: 14px;
 }
+
+.btn {
+  /* display: none; */
+}
+.fa-trash{
+  /* pointer-events: none; */
+} 
+.fa-ellipsis-v{
+  /* display: none; */
+}

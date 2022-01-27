@@ -11,7 +11,7 @@ const checkStrikeAndEdit = (e) => {
     description.style.textDecoration = 'line-through';
     // completedTask = true;
   } else {
-    description.style.textDecoration = 'none';
+    // description.style.textDecoration = 'none';
   }
   if (item.className === 'task-text') {
     item.removeAttribute('readOnly');

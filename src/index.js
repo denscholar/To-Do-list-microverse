@@ -44,11 +44,9 @@ document.querySelector('.task-list').addEventListener('click', (e) => {
 });
 
 // Event that shows the trashcan
-document.querySelector('.task-list').addEventListener('click', (e) => {
-  const item = e.target;
-  const inputElement = item.parentElement.childNodes;
-  const trashcan = item.parentElement.childNodes[5];
-  if (inputElement) {
-    trashcan.style.diplay = 'block';
-  }
-});
+// document.querySelector('.task-list').addEventListener('click', (e) => {
+//   const item = e.target;
+//   const inputElement = item.parentElement.childNodes;
+//   const trashcan = item.parentElement.childNodes[5];
+  
+// });
