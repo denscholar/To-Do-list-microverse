@@ -70,6 +70,7 @@ li {
   outline: none;
   margin: 5px;
   border: none;
+  text-decoration: none;
 }
 
 .fa-ellipsis-v,
@@ -117,6 +118,6 @@ li {
   font-size: 14px;
 }
 
-.btn {
-  display: none;
+.line-through {
+  text-decoration: line-through;
 }

@@ -1,50 +1,36 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-unused-vars */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import _ from 'lodash';
+import checkStrikeAndEdit from './checkStrikeAndEdit.js';
+import { form, input } from './selectors.js';
+import Store from './Store.js';
 import './style.css';
+import Todo from './Todo.js';
 
-// Selectors
-const ul = document.querySelector('.task-list');
+// Events: display Task
+// document.addEventListener('DOMContentLoaded', Store.displayTask);
+// Events: add a Task
 
-const todoTasks = [
-  {
-    description: 'This is my first task',
-    completed: true,
-    index: 1,
-  },
-  {
-    description: 'This is my second task',
-    completed: false,
-    index: 2,
-  },
-  {
-    description: 'This is my third task',
-    completed: false,
-    index: 3,
-  },
-  {
-    description: 'This is my forth task',
-    completed: true,
-    index: 4,
-  },
-  {
-    description: 'This is my fifth task',
-    completed: false,
-    index: 5,
-  },
-];
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const index = Store.getTask().length + 1;
+  const inputText = input.value;
+  const completed = false;
+  if (inputText === '') {
+    return;
+  }
+  // instatiate the Todo
+  const todo = new Todo(inputText, completed, index);
 
-const createTask = () => {
-  todoTasks.forEach((task) => {
-    const li = document.createElement('li');
-    li.innerHTML = `
-      <input class="check" type="checkbox" value="${task.completed}">
-      <input type="text" id="${task.index}" class="task-text" type="checkbox" value="${task.description}" readonly>
-      <button><i class="fas fa-ellipsis-v"></i></button>
-      <button class="btn"><i id="${task.index}" onclick="deleteBtn(this.id)" class="fas fa-trash"></i></button>
-        `;
-    ul.appendChild(li);
-  });
-};
+  // add Task to UI
+  Store.addTask(todo);
+  input.value = '';
+});
 
-document.addEventListener('DOMContentLoaded', createTask);
+// event for checked and strike and edit
+document.querySelector('.task-list').addEventListener('click', (e) => {
+  checkStrikeAndEdit(e);
+});
+
+Store.displayTasks();
