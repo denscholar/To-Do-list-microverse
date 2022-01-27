@@ -41,19 +41,6 @@ class Store {
     }
   };
 
-  // static clearTask = () => {
-  //   const tasks = Store.getTask();
-  //   const clearBtn = document.getElementsByClassName('clear-button');
-  //   clearBtn.addEventListener('click', () => {
-  //     const filteredTask = tasks.filter((task) => task.completed !== true);
-  //     filteredTask.forEach((task, index) => {
-  //       task.index = index + 1;
-  //     });
-  //     Store.save(filteredTask);
-  //     Store.displayTasks();
-  //   });
-  // };
-
   static save(tasks) {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }

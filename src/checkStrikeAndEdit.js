@@ -5,6 +5,13 @@ const checkStrikeAndEdit = (e) => {
   const item = e.target;
   const index = item.id - 1;
   const description = item.parentElement.childNodes[3];
+  const check = item.parentElement.firstElementChild.checked;
+  if (check) {
+    description.style.textDecoration = 'line-through';
+  } else {
+    description.style.textDecoration = 'none';
+  }
+
   if (item.className === 'task-text') {
     item.removeAttribute('readOnly');
     description.addEventListener('keypress', (e) => {

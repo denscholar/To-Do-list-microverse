@@ -3,12 +3,10 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import _ from 'lodash';
 import checkStrikeAndEdit from './checkStrikeAndEdit.js';
-import { DummytoDos } from './DummytoDos.js';
 import { form, input } from './selectors.js';
 import Store from './Store.js';
 import './style.css';
 import Todo from './Todo.js';
-import strikeTthrough from './strikethrough.js';
 
 // Events: display Task
 document.addEventListener('DOMContentLoaded', Store.displayTask);
@@ -33,7 +31,6 @@ form.addEventListener('submit', (e) => {
 // event for checked and strike and edit
 document.querySelector('.task-list').addEventListener('click', (e) => {
   checkStrikeAndEdit(e);
-  strikeTthrough(e);
 });
 
 Store.displayTasks();
