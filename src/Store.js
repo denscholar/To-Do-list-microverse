@@ -1,6 +1,4 @@
-/* eslint-disable eqeqeq */
-import createTask from './displayTask.js';
-import { check } from './checkStrikeAndEdit.js';
+// import check from './check.js';
 
 const todoList = document.querySelector('.task-list');
 
@@ -41,6 +39,19 @@ class Store {
     }
   };
 
+  static clearTask = () => {
+    const tasks = Store.getTask();
+    const clearBtn = document.querySelector('.clear-button');
+    clearBtn.addEventListener('click', () => {
+      const filteredTask = tasks.filter((task) => task.completed !== true);
+      filteredTask.forEach((task, index) => {
+        task.index = index + 1;
+      });
+      Store.save(filteredTask);
+      Store.displayTasks();
+    });
+  };
+
   static save(tasks) {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
@@ -58,11 +69,52 @@ class Store {
       return 0;
     });
     sortedList.forEach((task) => {
-      createTask(task);
+      Store.createTask(task);
     });
     Store.save(sortedList);
-    check();
+    Store.check();
     Store.deleteTask();
+    Store.clearTask();
+  };
+
+  static check = () => {
+    const tasks = Store.getTask();
+    const checkboxes = document.getElementsByClassName('check');
+    for (let i = 0; i < checkboxes.length; i += 1) {
+      checkboxes[i].addEventListener('change', () => {
+        if (tasks[i].completed === true) {
+          tasks[i].completed = false;
+        } else {
+          tasks[i].completed = true;
+        }
+        Store.save(tasks);
+        Store.displayTasks();
+        Store.check();
+      });
+    }
+  };
+
+  static createTask = (task) => {
+    let todoObj = '';
+    if (task.completed === true) {
+      todoObj = `
+          <li id="${task.index}" class="task-item" draggable="true">
+              <input class="check" type="checkbox" value="${task.completed}" checked>
+              <input type="text" id="${task.index}" class="task-text line-through" value="${task.description}" readonly>
+              <button><i id="" class="fas fa-ellipsis-v"></i></button>
+              <button class="btn"><i id="taskdelete" class="fas fa-trash"></i></button>
+          </li>`;
+    } else {
+      todoObj = `
+            <li  id="${task.index}" class="task-item" draggable="true">
+              <input class="check" type="checkbox" value="${task.completed}">
+              <input type="text" id="${task.index}" class="task-text" value="${task.description}" readonly>
+              <button><i id="" class="fas fa-ellipsis-v"></i></button>
+              <button class="btn"><i id="taskdelete" class="fas fa-trash"></i></button>
+            </li>`;
+    }
+    todoList.innerHTML += todoObj;
+    Store.check();
   };
 }
 

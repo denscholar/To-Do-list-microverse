@@ -117,3 +117,7 @@ li {
   transform: rotate(90deg);
   font-size: 14px;
 }
+
+.line-through {
+  text-decoration: line-through;
+}
