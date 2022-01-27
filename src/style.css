@@ -121,3 +121,7 @@ li {
 .line-through {
   text-decoration: line-through;
 }
+
+.fa-ellipsis-v{
+  display: none;
+}
