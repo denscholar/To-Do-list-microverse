@@ -1,4 +1,4 @@
-import { addtask } from '../add_delete.js';
+import { addtask, removeTask } from '../add_delete.js';
 
 describe('Add and delete tests', () => {
   const task = {
@@ -12,4 +12,12 @@ describe('Add and delete tests', () => {
     const list = document.querySelectorAll('.listItem');
     expect(list).toHaveLength(1);
   });
+
+  test('Delete a task', () => {
+    removeTask(0);
+    const list = document.querySelectorAll('.listItem');
+    expect(list).toHaveLength(0);
+  });
+
+
 });
