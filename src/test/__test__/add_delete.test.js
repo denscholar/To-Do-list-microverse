@@ -18,6 +18,4 @@ describe('Add and delete tests', () => {
     const list = document.querySelectorAll('.listItem');
     expect(list).toHaveLength(0);
   });
-
-
 });
