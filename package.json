@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/denscholar/To-Do-list-microverse#readme",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.16.8",
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.5.1",
     "eslint": "^7.32.0",
@@ -39,5 +40,8 @@
     "webpack": "^5.66.0",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.7.3"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
   }
 }
