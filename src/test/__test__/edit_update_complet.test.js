@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 import {
-  updateStatuses, editTask, clearCompleted
+  updateStatuses, editTask, clearCompleted,
 } from '../add_delete.js';
 
 describe('Test clearCompleted tasks, update Status and edit Task', () => {
@@ -15,16 +16,16 @@ describe('Test clearCompleted tasks, update Status and edit Task', () => {
     expect(list).toMatchObject({});
   });
 
-  const newLocal_1 = test('Edit a Task', () => {
+  const newLocal1 = test('Edit a Task', () => {
     const update = 'This is the update';
     expect(task.description).not.toEqual('This is the update');
     editTask(task, update);
     expect(task.description).toEqual('This is the update');
-});
+  });
 
-const newLocal_2 = test('Update status', () => {
+  const newLocal2 = test('Update status', () => {
     const statusComplete = true;
     updateStatuses(task, statusComplete);
     expect(task.completed).toEqual(statusComplete);
-});
+  });
 });
